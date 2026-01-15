@@ -56,8 +56,7 @@ public class PlayerController : MonoBehaviour
         AssignInputs();
         // Assigns inputs.
  
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        
         // Locks you're cursor.
    }
  
