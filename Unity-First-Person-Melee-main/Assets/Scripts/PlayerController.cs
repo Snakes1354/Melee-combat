@@ -55,9 +55,6 @@ public class PlayerController : MonoBehaviour
         input = playerInput.Main;
         AssignInputs();
         // Assigns inputs.
- 
-        
-        // Locks you're cursor.
    }
  
    void Update()
@@ -142,7 +139,7 @@ public class PlayerController : MonoBehaviour
  
         Invoke(nameof(ResetAttack), attackSpeed);
         Invoke(nameof(AttackRaycast), attackDelay);
-        // Reesets the attack.
+        // Resets the attack.
  
         audioSource.pitch = Random.Range(0.9f, 1.1f);
         audioSource.PlayOneShot(swordSwing);
@@ -176,6 +173,7 @@ public class PlayerController : MonoBehaviour
             if(hit.transform.TryGetComponent<Actor>(out Actor T))
             {
                 T.TakeDamage(attackDamage);
+                Debug.Log("Deal Damage");
                 // Calls the Take damage method from the actor script.
             }
         }
