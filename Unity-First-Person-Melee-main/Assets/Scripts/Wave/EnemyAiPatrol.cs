@@ -5,13 +5,16 @@ public class EnemyAiPatrol : MonoBehaviour
 {
     GameObject player;
     NavMeshAgent agent;
-    
+
+    public GameObject projectile;
 
     [SerializeField] LayerMask groundLayer, playerLayer;
 
     //patrol
     Vector3 destPoint;
     bool walkpointSet;
+    public float timeBetweenAttacks;
+    bool alreadyAttacked;
     [SerializeField] float range;
 
     //state change
@@ -43,7 +46,26 @@ public class EnemyAiPatrol : MonoBehaviour
 
     void Attack()
     {
+        agent.SetDestination(transform.position);
 
+        transform.LookAt(player.transform);
+
+        if(!alreadyAttacked)
+        {
+            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+
+
+
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+    }
+
+    private void ResetAttack()
+    {
+        alreadyAttacked = false;
     }
     
     void Patrol()
