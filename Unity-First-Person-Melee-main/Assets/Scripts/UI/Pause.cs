@@ -3,6 +3,7 @@ using UnityEngine;
 public class Pause : MonoBehaviour
 {
     public GameObject Container;
+    public GameObject Health;
 
     void Update()
     {
@@ -12,6 +13,7 @@ public class Pause : MonoBehaviour
             Time.timeScale = 0f;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            Health.SetActive(false);
         }
     }
 
