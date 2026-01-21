@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuManager : MonoBehaviour
+public class EndMenu : MonoBehaviour
 {
     public void LoadScene(string SceneName)
     {
@@ -10,12 +10,4 @@ public class MainMenuManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-    
-    
-
-    
 }

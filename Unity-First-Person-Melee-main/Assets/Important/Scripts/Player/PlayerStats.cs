@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class PlayerStats : MonoBehaviour
    }
    private void Die()
    {
-       Debug.Log("You died!");
+         UnityEngine.SceneManagement.SceneManager.LoadScene("End Menu");
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
    }
 }
