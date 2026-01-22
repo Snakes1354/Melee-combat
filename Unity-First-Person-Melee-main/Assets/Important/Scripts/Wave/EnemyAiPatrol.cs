@@ -7,6 +7,7 @@ public class EnemyAiPatrol : MonoBehaviour
     NavMeshAgent agent;
 
     public GameObject projectile;
+    [SerializeField] private Transform projectileLaunch;
 
     [SerializeField] LayerMask groundLayer, playerLayer;
 
@@ -25,6 +26,7 @@ public class EnemyAiPatrol : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player");
+        //not using defensive programming :()
     }
     
 
@@ -37,18 +39,20 @@ public class EnemyAiPatrol : MonoBehaviour
         if(!playerInsight && !playerInAttackRange)Patrol();
         if(playerInsight && !playerInAttackRange)Chase();
         if(playerInsight && playerInAttackRange)Attack();
+
+        transform.
     }
     
     void Chase()
     {
-        agent. SetDestination(player. transform.position);
+        agent.SetDestination(player.transform.position);
     }
 
     void Attack()
     {
-        agent.SetDestination(transform.position);
+        agent.SetDestination(player.transform.position);
 
-        transform.LookAt(player.transform);
+        transform.LookAt(player.transform.position);
 
         if(!alreadyAttacked)
         {
