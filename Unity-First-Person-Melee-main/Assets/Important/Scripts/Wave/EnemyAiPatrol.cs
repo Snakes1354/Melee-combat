@@ -39,8 +39,6 @@ public class EnemyAiPatrol : MonoBehaviour
         if(!playerInsight && !playerInAttackRange)Patrol();
         if(playerInsight && !playerInAttackRange)Chase();
         if(playerInsight && playerInAttackRange)Attack();
-
-        transform.
     }
     
     void Chase()
@@ -52,7 +50,13 @@ public class EnemyAiPatrol : MonoBehaviour
     {
         agent.SetDestination(player.transform.position);
 
-        transform.LookAt(player.transform.position);
+        Vector3 direction = player.transform.position - transform.position;
+        direction.y = 0f;
+
+        if (direction.sqrMagnitude > 0.001f)
+        {
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
 
         if(!alreadyAttacked)
         {
@@ -87,7 +91,7 @@ public class EnemyAiPatrol : MonoBehaviour
 
         destPoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
 
-        if (Physics.Raycast(destPoint, Vector3.down, groundLayer))
+        if (Physics.Raycast(destPoint, Vector3.down, 5f, groundLayer))
         {
             walkpointSet = true;
         }

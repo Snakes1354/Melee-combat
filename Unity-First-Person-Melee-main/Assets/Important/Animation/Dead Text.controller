@@ -30,7 +30,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Change colour to white
-  m_Speed: 0.09
+  m_Speed: 0.019
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
