@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Important/Scenes/Levels/Level 3.unity
     guid: e5e609295f9ad864aa73dea1f7155373
+  - enabled: 1
+    path: Assets/Important/Scenes/Menus/Winning Menu.unity
+    guid: d38c5d751aa4ab84d85288b4298aefc7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: cdbc994e616636947b7bc3a748f09396,
       type: 3}

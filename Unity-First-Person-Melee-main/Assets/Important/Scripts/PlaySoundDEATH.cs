@@ -11,9 +11,5 @@ public class PlaySoundOnSceneLoad : MonoBehaviour
         {
             audioSource.Play();
         }
-        else
-        {
-            Debug.LogWarning("AudioSource component not found!");
-        }
     }
 }
